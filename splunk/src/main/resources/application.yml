@@ -1,0 +1,45 @@
+# APPLICATION LEVEL
+
+## DEFAULT CONFIG
+spring:
+  application:
+    name: demo-for-spring2
+server:
+  port: 8991
+
+## LOGGING
+logging:
+  level:
+    root: INFO
+    org:
+      springframework:
+        web: INFO
+        boot:
+          actuate: INFO
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+
+default:
+  hello:
+    name: God
+
+
+# ACTUATOR
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+---
+
+spring:
+  profiles: discovery
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
